@@ -1,0 +1,22 @@
+# TODO: S1135
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}-myapp
+  labels:
+    app: myapp
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: myapp
+  template:
+    metadata:
+      labels:
+        app: myapp
+    spec:
+      containers:
+        - name: myapp
+          image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+          ports:
+              - containerPort: 80

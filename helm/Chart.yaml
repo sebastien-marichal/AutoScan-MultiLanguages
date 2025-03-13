@@ -1,0 +1,29 @@
+# TODO: S1135
+apiVersion: v2
+name: my-awesome-app
+version: 1.2.3
+kubeVersion: ">=1.16.0"
+description: A Helm chart for deploying My Awesome App
+type: application
+appVersion: 2.0.0
+icon: https://example.com/icon.png
+home: https://example.com/my-awesome-app
+sources:
+  - https://github.com/example/my-awesome-app
+maintainers:
+  - name: Jane Doe
+    email: jane.doe@example.com
+  - name: John Smith
+    email: john.smith@example.com
+keywords:
+  - awesome
+  - app
+  - helm
+dependencies:
+  - name: redis
+    version: 14.8.8
+    repository: https://charts.bitnami.com/bitnami
+    alias: my-redis
+annotations:
+  category: "Example Applications"
+deprecated: false

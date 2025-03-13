@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: example
+spec:
+  containers: # TODO S1135
+    - image: k8s.gcr.io/test-webserver
+      name: example
+      volumeMounts:
+        - mountPath: /data
+          name: example

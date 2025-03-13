@@ -1,0 +1,10 @@
+- name: Ansible playbook
+  hosts: myhosts
+  tasks:
+    - name: Ping my hosts
+      ansible.builtin.ping:
+
+    - name: Print message
+      ansible.builtin.debug:
+        # TODO: S1135
+        msg: Hello world
