@@ -5,7 +5,20 @@ param (
     [int]$number
 )
 
-for ($i = 1; $i -le $number; $i++) {
+# Get the highest existing class file number
+$existingFiles = Get-ChildItem -Filter 'Class*.cs' | Select-Object -ExpandProperty Name
+$maxNumber = 0
+
+foreach ($file in $existingFiles) {
+    if ($file -match 'Class(\d+)\.cs') {
+        $num = [int]$matches[1]
+        if ($num -gt $maxNumber) {
+            $maxNumber = $num
+        }
+    }
+}
+
+for ($i = $maxNumber + 1; $i -le $maxNumber + $number; $i++) {
     $className = "Class$i"
     $fileName = "$className.cs"
     $content = @"
